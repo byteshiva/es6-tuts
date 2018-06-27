@@ -1,4 +1,4 @@
-let url = https://www.youtube.com/;
+let url = 'https://www.youtube.com/';
 let nodeArr2 = ['XmouoW1Gfro','4wQpuJo6RzM'];
 Array.from(nodeArr2).forEach( res => {
     fetch(url + 'watch?v=' + res).then(response => response.blob())
