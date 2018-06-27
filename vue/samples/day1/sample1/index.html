@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdeliver.net/npm/vue"></script>
+<div vue="feature" data-url="https://api.statuspage.com/codeship"> </div>
+<!-- 
+  // beforeMount get the elements before vue erases the elements and embeds the template data.
+  // example - shows how to get data-url from the div site and fetch the data accordingly.
+-->
+<script>
+    const vm = new Vue({
+        el: '[vue=feature"]',
+        data() {
+            return {
+                url: null,
+                status: 'loading',
+            }
+        },
+        template: `
+            <div>
+                <span class="status">{{ status }} </span>
+            </div>
+        `,
+        methods: {
+            fetchStatus() {
+                    return "something";
+            },
+        },
+        beforeMount() {
+            this.url = this.url.$el.dataset.url;
+            this.fetchStatus();
+        }
+
+    })
+</script>
