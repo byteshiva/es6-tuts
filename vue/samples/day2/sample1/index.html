@@ -1,0 +1,19 @@
+<!-- Generator example es2016 -->
+
+<script>
+
+function *foo() 
+  { 
+    try { 
+      const x = yield 3; 
+      console.log(`x: ${x}`) 
+    } catch (err) { 
+      console.log(err) 
+    } 
+ } 
+ 
+ const it = foo(); 
+ const res = it.next(); 
+ it.throw("Error");
+ 
+ </script>
