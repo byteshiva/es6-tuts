@@ -1,0 +1,42 @@
+<script>
+let data = { price: 10, quantity: 21};
+
+Object.defineProperty(data, "price", {
+  get() {
+    console.log('I was called !! ');
+  },
+  set(newValue) {
+    console.log('I was changed');
+  }
+});
+
+data.price;
+data.price = 20;
+
+let dataOld = new Proxy(dataOld, {
+    set: function(obj, prop, value) {
+            if(obj[prop] !== value) {
+                obj[prop] = value;
+                console.log("Hey world something has changed around .. old me ");
+            }
+     }
+ });
+ dataOld.lastAddedName = 'Mike Hon';
+
+let dataNew = {
+  names: [],
+};
+
+dataNew.names =  new Proxy(data.names, {
+    set: function(obj, prop, value) {
+        if (obj[prop] !== value) {
+            obj[prop] = value;
+            console.log('Hey world around me .. something has changed!!');
+        }
+    }
+});
+
+dataNew.names.push(1);
+dataNew.names.push("two");
+
+</script>
