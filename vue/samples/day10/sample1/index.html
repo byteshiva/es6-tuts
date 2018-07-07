@@ -1,0 +1,11 @@
+<script>
+sleep = (limit) => {setTimeout(() => {console.log("executed" + limit); return "executed"; }, limit) }
+
+
+async function go() {
+  await sleep(1000)
+  const response = await sleep(1750)
+  console.log("response", response)
+}
+
+</script>
