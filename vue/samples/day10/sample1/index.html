@@ -8,4 +8,27 @@ async function go() {
   console.log("response", response)
 }
 
+getDetails = async () => {
+  const vaPromise =  axios.get('https://api.github.com/users/byteshiva');
+  const lanPromise =  axios.get('https://api.github.com/users/LanguagePlayGround');
+  const [va, lan] = await Promise.all([vaPromise, lanPromise]);
+  // console.log(vaPromise.data.name)
+  // console.log(lanPromise.data.login)
+  
+  const html =`
+      <h1>${va.data.name}</h1>
+      <h1>${lan.data.login || "Namen"}</h1>
+   `;
+  return html
+}
+
+function handleError(fn) {
+  return function (...params) {
+    return fn(...params).catch(function(err) {
+      console.log('error happened !!')
+    });
+  }
+}
+
+const handleErrorFn = (fn) => (...params) => fn(...params).catch(console.log("error"));
 </script>
