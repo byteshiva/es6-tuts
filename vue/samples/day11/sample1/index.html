@@ -49,5 +49,18 @@ console.log(obj[prop4]);
   allUsersIterator.next();
   allUsersIterator.next();
   allUsersIterator.next();
+  
+// Example to test async and await
+const doubleAfter4Sec = (param) => {
+   return new Promise(resolve => {
+      console.log(param);
+      setTimeout(resolve(param * 2), 4000);
+   });
+}
 
+ doubleAndAdd = async (a, b) => { 
+  [a , b] = await Promise.all([doubleAfter4Sec(a),doubleAfter4Sec(a)]);
+return a + b;
+}
+doubleAndAdd(1,2).then(x => console.log(x));
 </script>
