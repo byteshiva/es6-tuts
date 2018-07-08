@@ -14,5 +14,40 @@ for(var key in obj) {
 
 console.log(obj[prop3]);
 console.log(obj[prop4]);
+  
+// Iterator using Symbol
+  
+  class Users {
+    constructor(users) {
+      this.users = users;
+    }
+    
+    [Symbol.iterator]() {
+      let i = 0;
+      let users = this.users;
+      
+      // this returned object is called an "iterator"
+      return {
+        next() {
+          if (i < users.length) {
+            return { done: false, value: users[i++] };
+          }
+          return { done: true };
+        },
+      };
+    }
+  }
+  
+  const allUsers = new Users([
+    { name: 'Siva' },
+    { name: 'Cva' },
+    { name: 'Subr' },    
+  ]);
+  
+  const allUsersIterator = allUsers[Symbol.iterator]();
+  allUsersIterator.next();
+  allUsersIterator.next();
+  allUsersIterator.next();
+  allUsersIterator.next();
 
 </script>
