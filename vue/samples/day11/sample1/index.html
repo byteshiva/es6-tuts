@@ -1,0 +1,18 @@
+<script>
+// Topic on Symbols
+
+var obj = {};
+obj['prop1'] = 1;
+obj['prop2'] = 2;
+
+var prop3 = Symbol('prop3');
+var prop4 = Symbol('prop4');
+
+for(var key in obj) {
+  console.log(key, '=', obj[key])
+}
+
+console.log(obj[prop3]);
+console.log(obj[prop4]);
+
+</script>
