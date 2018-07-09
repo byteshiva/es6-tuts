@@ -1,0 +1,23 @@
+<canvas id="viewport" ></canvas>
+<script>
+var canvas = document.getElementById('viewport'),
+context = canvas.getContext('2d');
+
+make_base();
+
+function make_base()
+{
+  base_image = new Image();
+  base_image.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAAKvSURBVO3BQY7cWAwFwXyE7n/lnF5yNh8QpCq3aUbEH6wxijVKsUYp1ijFGqVYoxRrlGKNUqxRijVKsUYp1ijFGqVYoxRrlG
+KNcvFQEr5J5SQJnUqXhBOVLgnfpPJEsUYp1ijFGuXiZSpvSsIdKl0SOpUnVN6UhDcVa5RijVKsUS4+LAl3qNyRhDuS0Kk8kYQ7VD6pWKMUa5RijXLxj1HpktCp/M2KNUqxRinWKBfDqHRJ+JcUa5RijVKsUS4+TOVPUumS0Kk8ofKbFGuUYo1SrFEuXpaE3yQJnUqXhE7lJA
+m/WbFGKdYoxRrl4iGVv5nKicrfpFijFGuUYo1y8VASOpUuCW9S6VS6JHQqXRI6lZMkvEnlk4o1SrFGKdYoFw+pdEk4UemScKLSJaFTeSIJf1ISOpUnijVKsUYp1igXDyWhU+mS8EQSnkhCp9Il4Q6VkyScJKFTeVOxRinWKMUa5eIPU+mS0Kk8odIl4Q6VkyTcofJJxRqlWK
+MUa5T4gy9KQqfSJeFNKidJuEPlTUnoVJ4o1ijFGqVYo1x8mcqJyh1J6FS6JHQqJyp3JOFE5ZuKNUqxRinWKPEHDyThm1SeSEKncpKETuWOJJyovKlYoxRrlGKNcvEylTcl4SQJncqJykkSOpUuCZ1Kl4Q7ktCpPFGsUYo1SrFGufiwJNyh8klJ6FQ6lS4Jd6jckYQ3FWuUYo
+1SrFEuhklCp9KpdEl4IgknKicqbyrWKMUapVijXKz/UTlJQqdykoRO5ZOKNUqxRinWKBcfpvJJKl0SuiR0KidJ6FQ6lS4Jv0mxRinWKMUa5eJlSfimJJyodEk4UemS0KmcqJwkoVN5U7FGKdYoxRol/mCNUaxRijVKsUYp1ijFGqVYoxRrlGKNUqxRijVKsUYp1ijFGqVYox
+RrlP8AKyQM6Zh1Mb8AAAAASUVORK5CYII=';
+
+base_image.onload = function(){
+    context.drawImage(base_image, 0, 0);
+  }
+}
+
+</script>
