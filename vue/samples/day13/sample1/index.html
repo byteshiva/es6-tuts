@@ -14,4 +14,17 @@ const object1 = {
 const object2 = Object.assign({c: 4, d: 5}, object1);
 console.log(object2.c, object2.d);
 
+// Spread example.
+function sum(x, y, z, a) {
+  return x + y + z + a;
+}
+
+const numbers = [1, 2, 19, 20];
+
+console.log(sum(...numbers));
+// expected output: 42
+
+console.log(sum.apply(null, numbers));
+// expected output: 42
+
 </script>
