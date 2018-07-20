@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <!-- Load TensorFlow.js -->
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <!-- Load Posenet -->
+    <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
+ </head>
+
+  <body>
+    
+    <img id="cat" src="https://cdn.glitch.com/15f0bccb-8e07-4753-ae2f-8e7c768e82a9%2FFashion_Nova_08-25_244.jpeg?1532117086535"/>
+  </body>
+  <!-- Place your code in the script tag below. You can also use an external .js file -->
+  <script>
+    var imageScaleFactor = 0.5;
+    var outputStride = 16;
+    var flipHorizontal = false;
+
+    var imageElement = document.getElementById('cat');
+    // imageElement.crossOrigin = "anonymous";
+    imageElement.setAttribute('crossorigin', 'anonymous');
+
+
+
+    posenet.load().then(function(net){
+      return net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride)
+    }).then(function(pose){
+      console.log(pose);
+    })
+  </script>
+</html>
