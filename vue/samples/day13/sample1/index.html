@@ -27,4 +27,16 @@ console.log(sum(...numbers));
 console.log(sum.apply(null, numbers));
 // expected output: 42
 
+// Asynchronous iteration.    
+const iterable = ['a', 'b','c'];
+const iterator = iterable[Symbol.iterator]();
+iterator.next()
+{ value: 'a', done: false }
+iterator.next()
+{ value: 'b', done: false }
+iterator.next()
+{ value: 'c', done: false }
+iterator.next()
+{ value: undefined, done: true }
+    
 </script>
