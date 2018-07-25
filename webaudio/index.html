@@ -1,0 +1,10 @@
+<script>
+/// Simple to steps to create audio on web using sine with 440 hz freq.
+c = new AudioContext();
+osc = c.createOscillator()
+osc.frequency.value = 440
+osc.connect(c.destination);
+osc.start(0); 
+osc.stop()
+
+</script>
