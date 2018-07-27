@@ -33,7 +33,37 @@ var request = new XMLHttpRequest();
   request.send();
 }
 
+// Setup Routing Graph audionodes
+function setupRoutingGraph() {
+  var context = new AudioContext(); 
+  // Create the low frequency oscillator that supplies the modulation signal
+  var lfo = context.createOscillator();
+      lfo.frequency.value = 1.0;  
+    
+   // Create the high frequency oscillator to be modulated
+   var hfo = context.createOscillator();  
+      hfo.frequency.value = 440.0;
 
+    // Create a gain node whose gain determines the amplitude of the modulation signal
+    var modulationGain = context.createGain();  
+      modulationGain.gain.value = 50;  
+    
+      // Configure the graph and start the oscillators  
+      lfo.connect(modulationGain);
+      modulationGain.connect(hfo.detune);  
+
+      // Route to speaker
+      hfo.connect(context.destination);  
+      // Start high freq
+      hfo.start(0);  
+      // Start low freq    
+      lfo.start(0);
+      // Stop the low pass freq.
+      lfo.stop()
+      // Stop the high pass freq.    
+      hfo.stop()
+}
+setupRoutingGraph();
 loadDogSound('./Dog-barking-outside-sound.mp3');
 
 </script>
