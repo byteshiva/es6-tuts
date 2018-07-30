@@ -36,6 +36,41 @@ let proxy = new Proxy(target, {
   l10nEN.format(new Date("2015-01-02")) // "1/2/2015" 
   l10nDE.format(new Date("2015-01-02")) // "2.1.2015" 
   
+  
+  // Classes with getter and setters
+  class Rectangle { 
+    constructor (width, height) { 
+     this._width  = width
+     this._height = height
+    } 
+    
+    set width (width) { 
+        this._width = width 
+    } 
+    
+    get width () { 
+      return this._width 
+    } 
+    
+    set height (height) { 
+      this._height = height 
+    } 
+    
+    get height () { 
+      return this._height 
+    } 
+    get area () { 
+      return this._width * this._height 
+    } 
+  } 
+  
+  var r = new Rectangle(50, 20) 
+  console.log(r.area); // 
+  // Set Width
+  r.width = 2
+  r.height = 2
+  console.log(r.area) // 4
+  
 </script>
 </head>
 <body>
