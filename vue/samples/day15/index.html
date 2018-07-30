@@ -11,6 +11,14 @@ let proxy = new Proxy(target, {
   
   proxy.foo === "Welcome, foo" 
   proxy.world === "Hello, world"
+
+  // Internationlization - enUS
+  var l10nEN = new Intl.NumberFormat("en-US")
+  // Internationlization - de-DE
+  var l10nDE = new Intl.NumberFormat("de-DE")
+  l10nEN.format(1234567.89)
+  l10nDE.format(1234567.89)
+  
 </script>
 </head>
 <body>
