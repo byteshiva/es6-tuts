@@ -1,5 +1,5 @@
 {
-   "phoneToDial":10000000000,
+   "phoneToDial":"10000000000",
    "oneSec":1000,
    "threeSec":3000,
    "twoMin":120000,
