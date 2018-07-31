@@ -1,0 +1,17 @@
+{
+   "phoneToDial":10000000000,
+   "oneSec":1000,
+   "threeSec":3000,
+   "twoMin":120000,
+   "oneMin":60000,
+   "siteForDial":"https://www.webrtc-enabled-site.com",
+   "countryName":"USA",
+   "phoneDialerSelector":"body > div.main-wrapper > div.dial-free.gradient-background.content-box > div > div:nth-child(2) > div.col-lg-4 > div > div.option-buttons > label:nth-child(4) > span",
+   "dialpadAreaSelector":"#dialpad-area > div:nth-child(1) > select",
+   "phoneElemSelector":"#phone_number",
+   "areaCodeSelector":"#dialpad-area > div:nth-child(1) > select",
+   "phoneNumSelector":"#phone_number",
+   "btnCallSelector":"#btncall",
+   "beforeDialCallScrnShotPath":"phoneNumberType.png",
+   "afterDialCallScrnShotPath":"btnAfterDial.png"
+}
