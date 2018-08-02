@@ -1,5 +1,8 @@
 // Third version to develop Stack 
 // using arrow functions with Custom Stack Implemetation using Array
+// @Todo - https://stackoverflow.com/questions/41886355/capturing-all-chained-methods-and-getters-using-a-proxy-for-lazy-execution
+// @Todo - https://stackoverflow.com/questions/38004688/chaining-javascript-es6-proxy-object
+// @todo - Chaining in Javascript
 var Stack = ((data = [], t = 0) => {
     let dataStore = data,
         top = t,
