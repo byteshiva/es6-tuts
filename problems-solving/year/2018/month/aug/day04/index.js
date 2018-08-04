@@ -34,3 +34,27 @@ console.log(uniqCharStr("abcdefaa"));
 
 console.log(uniqueCharacters("abcdef"));
 console.log(uniqueCharacters("aabcdef"));
+
+function checkIfUniqueChars (str) {
+    var checker = 0; // 32 or 64 bit integer variable 
+    for (var i = 0; i< str.length; i++) {
+        var index = str[i].charCodeAt(0) - 96;
+        var bitRepresentationOfIndex = 1 << index;  // left shift wide operators
+
+        if ( (checker & bitRepresentationOfIndex) > 1) { // AND Operation
+            console.log(str, false);
+            return false;
+        } else {
+            checker = (checker | bitRepresentationOfIndex);  // OR Operation
+        }
+    }
+    console.log(str, true);
+    return true;
+}
+
+checkIfUniqueChars("abcdefghi");  // true
+checkIfUniqueChars("aabcdefghi"); // false
+checkIfUniqueChars("abbcdefghi"); // false
+checkIfUniqueChars("abcdefghii"); // false
+checkIfUniqueChars("abcdefghii"); // fal
+
