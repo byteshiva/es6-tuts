@@ -10,3 +10,15 @@ function getResultUsingArrayMap() {
 
   return result;
 }
+
+
+// Array LEft Rotation using Array Shift
+
+function getResultsUsingArrayShift() {
+  let temp = data.splice(0);
+  for (let i=0; i<d-1; i++) {
+    let first = temp.shift();
+    temp.push(first);
+  }
+  return temp;
+}
