@@ -1,7 +1,8 @@
-# CLANG=$(TOOLS)/bin/bin/clang 
-# LLC=$(TOOLS)/bin/bin/llc
-# S2WASM=$(TOOLS)/bin/s2wasm
-# WAST2WASM=$(TOOLS)/bin/bin/wast2wasm
+CLANG=$(TOOLS)/bin/bin/clang 
+LLC=$(TOOLS)/bin/bin/llc
+S2WASM=$(TOOLS)/bin/s2wasm
+WAST2WASM=$(TOOLS)/bin/bin/wast2wasm
+
 default:
 	wat2wasm add.wat -v -o wasm/add.wasm
 compile:
@@ -11,9 +12,7 @@ serve:
 clean:
 	rm *.wasm
 emcc:
-	emcc c/add.c -Os -s WASM=1 -s SIDE_MODULE=1 -o wasm/add.wasm
-emccasync:
-	emcc c/add.c -Os -s BINARYEN_ASYNC_COMPILATION=1,WASM=1 -s SIDE_MODULE=1 -o wasm/add.wasm
+	emcc add.c -Os -s WASM=1 -s SIDE_MODULE=1 -o wasm/add.wasm
 
 # %.bc : %.c
 # 	${CLANG} --target=wasm32 -Oz -c -emit-llvm $< -o $@

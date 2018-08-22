@@ -1,26 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="author" content="Giovanni Londero">
-  <meta name="description" content="Learning WebAssembly (WASM)">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-  <meta name="theme-color" content="#FF0000">
-  <title>Learning WebAssembly | Giovanni Londero</title>
-
-  <main>
-    <h1>WebAssembly experiments</h1>
-
-    <h2>Calculate square root</h2>
-    <form action="/" name="calcSqrt">
-      <label>
-        Insert number:
-        <input name="sqrtInput" value="0" type="tel" pattern="\d+" required>
-      </label>
-      <button name="sqrtSubmit">Calculate!</button>
-      <p data-sqrt-result hidden></p>
-    </form>
-  </main>
-
-  <script type="module" src="js/add.js"></script>
+<html>
+<head>
+</head>
+<body>
+  <input type="button" id="run" value="(waiting for WebAssembly)"/>
+  <input type="text" id="elem1" value="12"   pattern="\d+" />
+  <input type="text" id="elem2" value="23"  pattern="\d+" />
+  <script>
+    // Check for wasm support.
+    if (!('WebAssembly' in window)) {
+      alert('you need a browser with wasm support enabled :(');
+    }
+    // Loads a WebAssembly dynamic library, returns a promise.
+    // imports is an optional imports object
+    function loadWebAssembly(filename, imports) {
+      // Fetch the file and compile it
+      return fetch(filename)
+        .then(response => response.arrayBuffer())
+        .then(buffer => WebAssembly.compile(buffer))
+        .then(module => {
+          console.log("loading modules");
+          // Create the imports for the module, including the
+          // standard dynamic library imports
+          imports = imports || {};
+          imports.env = imports.env || {};
+          imports.env.memoryBase = imports.env.memoryBase || 0;
+          imports.env.tableBase = imports.env.tableBase || 0;
+          imports.env.abort = alert;
+          if (!imports.env.memory) {
+            imports.env.memory = new WebAssembly.Memory({ initial: 256 });
+          }
+          if (!imports.env.table) {
+            imports.env.table = new WebAssembly.Table({ initial: 256, element: 'anyfunc' });
+          }
+          // Create the instance.
+          return new WebAssembly.Instance(module, imports);
+        });
+    }
+    // Main part of this example, loads the module and uses it.
+    loadWebAssembly('./wasm/add.wasm')
+      .then(instance => {
+        var exports = instance.exports; // the exports of that instance
+        var add = exports._add; // the "doubler" function (note "_" prefix)
+        // now we are ready, set up the button so the user can run the code
+        var button = document.getElementById('run');
+        button.value = 'Call a method in the WebAssembly module';
+        button.addEventListener('click', function() {
+          var input1 = document.getElementById('elem1').value;
+          var input2 = document.getElementById('elem2').value;
+          console.log("load");
+          alert(input1 + ' and ' + input2 + ' add is ' + add(parseInt(input1), parseInt(input2)));
+        }, false);
+      }
+    ).catch(e => {
+        console.log(e);
+    });
+  </script>
+</body>
 </html>

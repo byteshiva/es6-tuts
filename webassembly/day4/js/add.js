@@ -5,7 +5,7 @@ const moduleFns = {
       });
     }
   };
-  moduleFns.load('../wasm/add.wasm'); // sqrt.wasm compiled with https://wasdk.github.io/WasmFiddle/
+  moduleFns.load('../c/add.wasm'); // sqrt.wasm compiled with https://wasdk.github.io/WasmFiddle/
   
   const form = document.forms.calcSqrt;
   
@@ -15,8 +15,8 @@ const moduleFns = {
   
     console.log(moduleFns);
     const val = this.sqrtInput.value;
-    const result = moduleFns.f(val);
-    console.log(result);
+    const result = moduleFns.load(val);
+    console.log(result);load
     const resultEl = this.querySelector('[data-sqrt-result]');
   
     resultEl.removeAttribute('hidden');
