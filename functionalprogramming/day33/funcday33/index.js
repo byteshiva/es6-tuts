@@ -10,6 +10,8 @@ const M       = require('ramda-fantasy').Maybe;
    get('address'),
    get('user'),
  );
- getStateCode({"user":{"address":{"state":"ny"}}}); //=> Maybe.Just("NY")
- getStateCode({}); //=> Maybe.Nothing()
+const gCode =  getStateCode({"user":{"address":{"state":"ny"}}}); //=> Maybe.Just("NY")
+const gCodeM = getStateCode({}); //=> Maybe.Nothing()
+
+console.log(gCode, gCodeM);
 
