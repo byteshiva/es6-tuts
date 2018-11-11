@@ -1,5 +1,13 @@
 const R = require('ramda');
 
-const dissocPathExample = R.dissocPath(['a', 'b', 'c'], {a: {b: {c: 42}}}); //=> {a: {b: {}}}
+console.log(R.divide(71, 100)); //=> 0.71
 
-console.log(dissocPathExample);
+var half = R.divide(R.__, 2);
+half(42); //=> 21
+
+console.log(half(42));
+
+var reciprocal = R.divide(1);
+reciprocal(4);   //=> 0.25
+
+console.log(reciprocal(4));
