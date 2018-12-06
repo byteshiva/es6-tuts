@@ -1,4 +1,4 @@
-cosnt R = require('ramda');
+const R = require('ramda');
 
 const rgt1 = R.gt(2, 1); //=> true
 const rgt2 = R.gt(2, 2); //=> false
