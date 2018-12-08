@@ -6,4 +6,4 @@ const rgte3 = R.gte(2, 3); //=> false
 const rgte4 = R.gte('a', 'z'); //=> false
 const rgte5 = R.gte('z', 'a'); //=> true
 
-console.log(rgte1, rget2, rgte3, rgte4, rgte5);
+console.log(rgte1, rgte2, rgte3, rgte4, rgte5);
