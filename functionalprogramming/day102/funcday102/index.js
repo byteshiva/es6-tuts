@@ -7,4 +7,4 @@ const risempty4 = R.isEmpty(null);        //=> false
 const risempty5 = R.isEmpty({});          //=> true
 const risempty6 = R.isEmpty({length: 0}); //=> false
 
-console.log(risempty1, risempty2, risempty3, risempty4, risempty5, risempty6);p
+console.log(risempty1, risempty2, risempty3, risempty4, risempty5, risempty6);
