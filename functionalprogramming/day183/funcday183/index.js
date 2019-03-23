@@ -1,6 +1,6 @@
 const R = require('ramda');
 
-cosnt rreduce1 = R.reduce(R.subtract, 0, [1, 2, 3, 4]) // => ((((0 - 1) - 2) - 3) - 4) = -10
+const rreduce1 = R.reduce(R.subtract, 0, [1, 2, 3, 4]) // => ((((0 - 1) - 2) - 3) - 4) = -10
 
 console.log(rreduce1);
 //          -               -10
