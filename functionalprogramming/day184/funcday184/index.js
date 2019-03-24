@@ -14,7 +14,7 @@ var students = [
   {name: 'Dora', score: 92},
 ]
 
-const rreduceby1 = reduceBy(groupNames, [], toGrade, students)
+const rreduceby1 = R.reduceBy(groupNames, [], toGrade, students)
 //=> {"A": ["Dora"], "B": ["Abby", "Curt"], "F": ["Bart"]}
 
 console.log(rreduceby1);
