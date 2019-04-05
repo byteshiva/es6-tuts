@@ -1,3 +1,5 @@
+const R = require('ramda');
+
 const xLens = R.lensProp('x');
 
 const rset1 = R.set(xLens, 4, {x: 1, y: 2});  //=> {x: 4, y: 2}
