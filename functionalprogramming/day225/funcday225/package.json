@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "ramda": "^0.26.1",
+    "ramda-fantasy": "^0.8.0"
+  }
 }
