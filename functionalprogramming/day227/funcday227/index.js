@@ -1,4 +1,4 @@
-const R = requrie('ramda');
+const R = require('ramda');
 
 const rtrycatch1 = R.tryCatch(R.prop('x'), R.F)({x: true}); //=> true
 const rtrycatch2 = R.tryCatch(() => { throw 'foo'}, R.always('catched'))('bar') // => 'catched'
