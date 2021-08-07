@@ -5,7 +5,7 @@
   "author": "byteshiva <byteshiva@gmail.com>",
   "main": "functions/__main__.js",
   "dependencies": {
-    "lib": "^3.0.2"
+    "lib": "3.0.2"
   },
   "private": true,
   "stdlib": {
