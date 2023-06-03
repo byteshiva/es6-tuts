@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "rama": "^0.1.0",
-    "ramda": "^0.26.1"
+    "ramda": "^0.29.0"
   }
 }
