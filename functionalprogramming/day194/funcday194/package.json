@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ramda": "^0.26.1",
+    "ramda": "^0.29.0",
     "ramda-fantasy": "^0.8.0"
   }
 }
