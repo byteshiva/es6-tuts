@@ -5,4 +5,4 @@ authors = ["siva <byteshiva@gmail.com>"]
 
 [dependencies]
 time = "0.3.7"
-regex = "1.0.2"
+regex = "1.10.4"
